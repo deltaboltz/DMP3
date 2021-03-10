@@ -17,5 +17,4 @@ $(OUTPUT): $(DEPENDANCIES)
 	make clean
 
 clean:
-	$(CLEANCOMM) *.o
-	rm P3 output.txt
+	$(CLEANCOMM) *.o P3 output.txt
