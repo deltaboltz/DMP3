@@ -86,7 +86,7 @@ double Data::naivebayes_num(Map m, bool type)
   {
     bool atr = m.get(index);
     double p = pgiven(index, atr, type);
-    std::cout << "P(X_" << index << "=" << atr << " | Y=" << type << ") =" << p << "\n";
+    //std::cout << "P(X_" << index << "=" << atr << " | Y=" << type << ") =" << p << "\n";
     numerator *= p;
   }
 
