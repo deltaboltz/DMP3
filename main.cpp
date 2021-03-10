@@ -2,12 +2,14 @@
 #include <ctype.h>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include "map.h"
 #include "train.h"
 #include "data.h"
 
 int main (int argc, char *argv[]) 
 {
+	ofstream outputFile("output.txt");
 	std::string sentence;
 	int i;
 	char c;
@@ -42,9 +44,9 @@ int main (int argc, char *argv[])
 		double no = d.naivebayes_num(m, 0);
 		double both = yes + no;
 
-		std::cout << cs_yes[i] << "\n";
-		std::cout << "    CS: " << no << "\t(" << (yes / both)*100 << "%\n";
-		std::cout << "NOT CS: " << no << "\t(" << (yes / both)*100 << "%\n";
-		std::cout << "Class:  " << ((yes > no) ? "    CS\n" : "NOT CS\n\n");
+		outputFile << cs_yes[i] << "\n";
+		outputFile << "    CS: " << no << "\t(" << (yes / both)*100 << "%\n";
+		outputFile << "NOT CS: " << no << "\t(" << (yes / both)*100 << "%\n";
+		outputFile << "Class:  " << ((yes > no) ? "    CS\n" : "NOT CS\n\n");
 	}
 }
