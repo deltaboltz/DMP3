@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -I.
-OUTPUT = P1
+OUTPUT = P3
 DEPENDANCIES = main.o
 
 ifeq ($(OS), Windows_NT)

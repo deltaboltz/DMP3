@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string>
+#include <fstream>
 #include <iostream>
 #include "map.h"
 #include "train.h"
@@ -8,6 +9,8 @@
 
 int main (int argc, char *argv[]) 
 {
+	std::ofstream outputFile;
+	outputFile.open("output.txt");
 	std::string sentence;
 	int i;
 	char c;
@@ -40,9 +43,24 @@ int main (int argc, char *argv[])
 		double no = d.naivebayes_num(m, 0);
 		double both = yes + no;
 
-		std::cout << cs_yes[i] << "\n";
-		std::cout << "    CS: " << yes << "\t(" << (yes / both)*100 << " %)\n";
-		std::cout << "NOT CS: " << no << "\t(" << (no / both)*100 << " %)\n\n";
-		std::cout << "Class:  " << ((yes > no) ? "    CS\n" : "NOT CS\n\n");
+		outputFile << cs_yes[i] << "\n";
+		outputFile << "    CS: " << yes << "\t(" << (yes / both)*100 << " %)\n";
+		outputFile << "NOT CS: " << no << "\t(" << (no / both)*100 << " %)\n\n";
+		outputFile << "Class:  " << ((yes > no) ? "    CS\n" : "NOT CS\n\n");
 	}
+	outputFile << "\n\n\n\nCS_NO OUTPUT \n\n\n\n";
+
+	for(i = 0; i < 52; i++)
+	{
+		Map m = d.vectorize(cs_no[i]);
+		double yes = d.naivebayes_num(m, 1);
+		double no = d.naivebayes_num(m, 0);
+		double both = yes + no;
+		
+	 	outputFile << cs_no[i] << "\n";
+                outputFile << "    CS: " << yes << "\t(" << (yes / both)*100 << " %)\n";
+                outputFile << "NOT CS: " << no << "\t(" << (no / both)*100 << " %)\n\n";
+                outputFile << "Class:  " << ((yes > no) ? "    CS\n" : "NOT CS\n\n");
+	}
+	outputFile.close();
 }
