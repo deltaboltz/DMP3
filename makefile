@@ -18,3 +18,4 @@ $(OUTPUT): $(DEPENDANCIES)
 
 clean:
 	$(CLEANCOMM) *.o
+	rm P3 output.txt
