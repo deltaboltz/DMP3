@@ -20,4 +20,4 @@ clean:
 	$(CLEANCOMM) *.o
 
 pclean:
-	rm P3 output.txt
+	$(CLEANCOMM) *.o P3 output.txt
