@@ -49,4 +49,5 @@ int main (int argc, char *argv[])
 		outputFile << "NOT CS: " << no << "\t(" << (yes / both)*100 << "%\n";
 		outputFile << "Class:  " << ((yes > no) ? "    CS\n" : "NOT CS\n\n");
 	}
+	outputFile.close()
 }
