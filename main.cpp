@@ -17,7 +17,7 @@ int main (int argc, char *argv[])
 	char c;
 	Data d(104);
 
-	for (i = 0; i < 52; i++) 
+	for (i = 0; i < 20; i++) 
 	{
 		d.train(cs_yes[i], 1);
 		d.train(cs_no[i], 0);
@@ -36,10 +36,9 @@ int main (int argc, char *argv[])
 		i++;
 	}
 
-	for (i = 0; i < 52; i++) 
+	for (i = 0; i < 20; i++) 
 	{
-		Map m = d.vectorize(cs_no[i]);
-		outputFile.write(*m);
+		Map m = d.vectorize(cs_no[i]);	
 		double yes = d.naivebayes_num(m, 1);
 		double no = d.naivebayes_num(m, 0);
 		double both = yes + no;
@@ -51,10 +50,9 @@ int main (int argc, char *argv[])
 	}
 	outputFile << "\n\n\n\nCS_NO OUTPUT \n\n\n\n";
 
-	for(i = 0; i < 52; i++)
+	for(i = 0; i < 20; i++)
 	{
 		Map m = d.vectorize(cs_no[i]);
-		outputFile.write(*m);
 		double yes = d.naivebayes_num(m, 1);
 		double no = d.naivebayes_num(m, 0);
 		double both = yes + no;
