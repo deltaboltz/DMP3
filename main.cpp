@@ -39,7 +39,7 @@ int main (int argc, char *argv[])
 	for (i = 0; i < 52; i++) 
 	{
 		Map m = d.vectorize(cs_no[i]);
-		outputFile.write(m);
+		outputFile.write(*m);
 		double yes = d.naivebayes_num(m, 1);
 		double no = d.naivebayes_num(m, 0);
 		double both = yes + no;
@@ -54,7 +54,7 @@ int main (int argc, char *argv[])
 	for(i = 0; i < 52; i++)
 	{
 		Map m = d.vectorize(cs_no[i]);
-		outputFile.write(m);
+		outputFile.write(*m);
 		double yes = d.naivebayes_num(m, 1);
 		double no = d.naivebayes_num(m, 0);
 		double both = yes + no;
