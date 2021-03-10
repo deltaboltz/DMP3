@@ -2,7 +2,7 @@
 #ifndef TRAIN_H
 #define TRAIN_H
 #include <iostream>
-#include <fstream>
+#include <sstream>
 #include <string>
 #include "map.h"
 
