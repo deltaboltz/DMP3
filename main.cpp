@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include "map.h"
-#include "training.h"
+#include "train.h"
 #include "data.h"
 
 int main (int argc, char *argv[]) 
