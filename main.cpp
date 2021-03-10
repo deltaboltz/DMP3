@@ -9,7 +9,7 @@
 
 int main (int argc, char *argv[]) 
 {
-	fstream outputFile("output.txt");
+	std::fstream outputFile("output.txt");
 	std::string sentence;
 	int i;
 	char c;
