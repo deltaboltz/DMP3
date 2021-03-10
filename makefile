@@ -3,11 +3,7 @@ CFLAGS = -I.
 OUTPUT = P3
 DEPENDANCIES = main.o
 
-ifeq ($(OS), Windows_NT)
-	CLEANCOMM = del /Q /S
-else
-	CLEANCOMM = rm -f
-endif
+CLEANCOMM = rm -f
 
 %.o: %.cpp
 	$(CC) -std=c++11 -c -g -o $@ $< $(CFLAGS)
